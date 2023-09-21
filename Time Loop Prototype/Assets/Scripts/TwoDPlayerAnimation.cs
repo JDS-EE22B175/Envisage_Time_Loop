@@ -23,7 +23,7 @@ public class TwoDPlayerAnimation : MonoBehaviour
         velZHash = Animator.StringToHash("VelocityZ");
     }
 
-    void ChangeVelocity(bool forwardPressed, bool leftPressed, bool rightPressed, bool sprintPressed, float currentMaxVel)
+    void ChangeVelocity(bool forwardPressed, bool leftPressed, bool rightPressed, bool sprintPressed, float currentMaxVel, bool backwardPressed)
     {
         if (forwardPressed && velZ < currentMaxVel)
         {
@@ -45,6 +45,16 @@ public class TwoDPlayerAnimation : MonoBehaviour
             velZ -= Time.deltaTime * deceleration;
         }
 
+        if (!backwardPressed && velZ < 0f)
+        {
+            velZ += Time.deltaTime * deceleration;
+        }
+
+        if (backwardPressed && velZ > -maxWalkVel)
+        {
+            velZ -= Time.deltaTime * acceleration;
+        }
+
         if (!rightPressed && velX > 0f)
         {
             velX -= Time.deltaTime * deceleration;
@@ -55,19 +65,22 @@ public class TwoDPlayerAnimation : MonoBehaviour
         }
     }
 
-    void LockResetVelocity(bool forwardPressed, bool leftPressed, bool rightPressed, bool sprintPressed, float currentMaxVel)
+    void LockResetVelocity(bool forwardPressed, bool leftPressed, bool rightPressed, bool sprintPressed, float currentMaxVel, bool backwardPressed)
     {
 
-        if (!forwardPressed && velZ < 0f)
+        if (!forwardPressed && !backwardPressed && (velZ > -0.05f && velZ < 0.05f))
         {
             velZ = 0f;
         }
 
-
-
         if (!rightPressed && !leftPressed && velX != 0f && (velX > -0.05f && velX < 0.05f))
         {
             velX = 0f;
+        }
+
+        if (backwardPressed && velZ < -maxWalkVel)
+        {
+            velZ = -maxWalkVel;
         }
 
         if (forwardPressed && sprintPressed && velZ > currentMaxVel)
@@ -134,11 +147,12 @@ public class TwoDPlayerAnimation : MonoBehaviour
         bool leftPressed = Input.GetKey(KeyCode.A);
         bool rightPressed = Input.GetKey(KeyCode.D);
         bool sprintPressed = Input.GetKey(KeyCode.LeftShift);
+        bool backwardPressed = Input.GetKey(KeyCode.S);
 
         float currentMaxVel = sprintPressed ? maxRunVel : maxWalkVel;
 
-        ChangeVelocity(forwardPressed, leftPressed, rightPressed, sprintPressed, currentMaxVel);
-        LockResetVelocity(forwardPressed, leftPressed, rightPressed, sprintPressed, currentMaxVel);
+        ChangeVelocity(forwardPressed, leftPressed, rightPressed, sprintPressed, currentMaxVel, backwardPressed);
+        LockResetVelocity(forwardPressed, leftPressed, rightPressed, sprintPressed, currentMaxVel, backwardPressed);
 
         animator.SetFloat(velXHash, velX);
         animator.SetFloat(velZHash, velZ);
