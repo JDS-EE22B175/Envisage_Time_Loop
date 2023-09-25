@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-    public float interactRange = 2f;
+    public float interactRange = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
