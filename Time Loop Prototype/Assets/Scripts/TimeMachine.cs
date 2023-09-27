@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class TimeMachine : MonoBehaviour, IInteractable
 {
+    [SerializeField] GameObject TimeMachineUI;
     public void Interact(Transform interactorTransform)
     {
-
+        TimeMachineUI.SetActive(true);
+        interactorTransform.gameObject.GetComponent<TwoDPlayerAnimation>().canMove = false;
+        interactorTransform.gameObject.GetComponentInChildren<MouseLook>().enabled = false;
+        Cursor.lockState = CursorLockMode.None;
     }
     public string GetInteractText()
     {
