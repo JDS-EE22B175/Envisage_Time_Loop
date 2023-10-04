@@ -5,11 +5,20 @@ using UnityEngine;
 public class TimeMachine : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject TimeMachineUI;
+    [SerializeField] PlayerInteract playerInteract;
+    [SerializeField] GameObject interactionUIContainer;
+    [SerializeField] GameObject inputFields;
+    [SerializeField] GameObject puzzleButtons;
+    public static int puzzlesCompleted = 0;
     public void Interact(Transform interactorTransform)
     {
         TimeMachineUI.SetActive(true);
         interactorTransform.gameObject.GetComponent<TwoDPlayerAnimation>().canMove = false;
         interactorTransform.gameObject.GetComponentInChildren<MouseLook>().enabled = false;
+        playerInteract.enabled = false;
+        interactionUIContainer.SetActive(false);
+        inputFields.SetActive(false);
+        puzzleButtons.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
     }
     public string GetInteractText()

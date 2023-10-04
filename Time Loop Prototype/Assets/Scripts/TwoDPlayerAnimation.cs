@@ -9,6 +9,7 @@ public class TwoDPlayerAnimation : MonoBehaviour
     [SerializeField] public GameObject playerSledgeHammer;
     PlayerUIHandler playerUIHandler;
     [SerializeField] CinemachineVirtualCamera TPCamera;
+    PlayerInteract playerInteract;
 
     Animator animator;
     float velX = 0f;
@@ -32,6 +33,7 @@ public class TwoDPlayerAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerInteract = GetComponent<PlayerInteract>();
         playerUIHandler = gameObject.GetComponent<PlayerUIHandler>();
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
@@ -188,7 +190,7 @@ public class TwoDPlayerAnimation : MonoBehaviour
         bool backwardPressed = Input.GetKey(KeyCode.S);
         bool isKicking = Input.GetKeyDown(KeyCode.Space);
         bool isSlashing = Input.GetKeyDown(KeyCode.V);
-        bool escaped = Input.GetKeyDown(KeyCode.Escape);
+        bool escaped = Input.GetKeyDown(KeyCode.Tab);
 
         float currentMaxVel = sprintPressed ? maxRunVel : maxWalkVel;
 
@@ -201,6 +203,7 @@ public class TwoDPlayerAnimation : MonoBehaviour
             playerUIHandler.TimeMachineUI.SetActive(false);
             TPCamera.GetComponent<MouseLook>().enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
+            playerInteract.enabled = true;
         }
 
 
