@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DoorInteractable : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject looper;
+    [SerializeField] GameObject timeMachineUIHandler;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class DoorInteractable : MonoBehaviour, IInteractable
         Debug.Log("Going To The " + gameObject.name.ToString().Split()[0]);
         SceneManager.LoadScene("Auditorium");
         DontDestroyOnLoad(looper);
+        DontDestroyOnLoad(timeMachineUIHandler);
     }
     public string GetInteractText()
     {

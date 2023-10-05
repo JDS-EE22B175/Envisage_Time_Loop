@@ -6,6 +6,7 @@ public class NPCInteractable : MonoBehaviour, IInteractable
 {
     Animator animator;
     int interactHash;
+    [SerializeField] string dialogueString;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -13,9 +14,12 @@ public class NPCInteractable : MonoBehaviour, IInteractable
     }
     public void Interact(Transform interactorTransform)
     {
-        Debug.Log("This is a Test Interaction with " + gameObject.name);
-        animator.SetBool(interactHash, true);
-        StartCoroutine(talkWait());
+        Debug.Log(dialogueString);
+        if (animator != null)
+        {
+            animator.SetBool(interactHash, true);
+            StartCoroutine(talkWait());
+        }
     }
 
     IEnumerator talkWait()
