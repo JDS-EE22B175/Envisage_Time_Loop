@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -5,6 +6,11 @@ using UnityEngine;
 
 public class TwoDPlayerAnimation : MonoBehaviour
 {
+    [SerializeField] public GameObject playerSledgeHammer;
+    PlayerUIHandler playerUIHandler;
+    [SerializeField] CinemachineVirtualCamera TPCamera;
+    PlayerInteract playerInteract;
+
     Animator animator;
     float velX = 0f;
     float velZ = 0f;
@@ -16,18 +22,25 @@ public class TwoDPlayerAnimation : MonoBehaviour
     public float forwardMovementBoost = 1.5f;
     CharacterController controller;
 
+    public bool slashing = false;
+    public bool canMove = true;
+
     // Increasing Performance using Hashes
     int velXHash;
     int velZHash;
     int kickingHash;
+    int slashingHash;
     // Start is called before the first frame update
     void Start()
     {
+        playerInteract = GetComponent<PlayerInteract>();
+        playerUIHandler = gameObject.GetComponent<PlayerUIHandler>();
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         velXHash = Animator.StringToHash("VelocityX");
         velZHash = Animator.StringToHash("VelocityZ");
         kickingHash = Animator.StringToHash("isKicking");
+        slashingHash = Animator.StringToHash("isSlashing");
     }
 
     void ChangeVelocity(bool forwardPressed, bool leftPressed, bool rightPressed, bool sprintPressed, float currentMaxVel, bool backwardPressed)
@@ -152,34 +165,68 @@ public class TwoDPlayerAnimation : MonoBehaviour
         if (kickAnimationDone == "done")
         {
             animator.SetBool(kickingHash, false);
+            canMove = true;
+        }
+    }
+
+    public void SlashDone(string slashAnimationDone)
+    {
+        if (slashAnimationDone == "done")
+        {
+            animator.SetBool(slashingHash, false);
+            Debug.Log("Done");
+            slashing = false;
+            canMove = true;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
         bool forwardPressed = Input.GetKey(KeyCode.W);
         bool leftPressed = Input.GetKey(KeyCode.A);
         bool rightPressed = Input.GetKey(KeyCode.D);
         bool sprintPressed = Input.GetKey(KeyCode.LeftShift);
         bool backwardPressed = Input.GetKey(KeyCode.S);
         bool isKicking = Input.GetKeyDown(KeyCode.Space);
+        bool isSlashing = Input.GetKeyDown(KeyCode.V);
+        bool escaped = Input.GetKeyDown(KeyCode.Tab);
 
         float currentMaxVel = sprintPressed ? maxRunVel : maxWalkVel;
 
         ChangeVelocity(forwardPressed, leftPressed, rightPressed, sprintPressed, currentMaxVel, backwardPressed);
         LockResetVelocity(forwardPressed, leftPressed, rightPressed, sprintPressed, currentMaxVel, backwardPressed);
 
-        if (isKicking)
+        if(!isSlashing && !isKicking && !canMove && escaped)
         {
-            animator.SetBool(kickingHash, true);
-            Debug.Log("Kicked");
+            canMove = true;
+            playerUIHandler.TimeMachineUI.SetActive(false);
+            TPCamera.GetComponent<MouseLook>().enabled = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            playerInteract.enabled = true;
         }
 
-        
 
-        if (!isKicking)
+        if (isKicking && !isSlashing)
+        {
+            animator.SetBool(kickingHash, true);
+            canMove = false;
+        }
+
+        if (!isKicking && isSlashing && !slashing)
+        {
+            animator.SetBool(slashingHash, true);
+            slashing = true;
+            canMove = false;
+        }
+
+        if(!canMove)
+        {
+            animator.SetFloat(velXHash, 0f);
+            animator.SetFloat(velZHash, 0.0f);
+        }
+
+        if (!isKicking && !isSlashing && canMove)
         {
             animator.SetFloat(velXHash, velX);
             animator.SetFloat(velZHash, velZ);

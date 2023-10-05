@@ -7,6 +7,11 @@ public class ObjectInteractable : MonoBehaviour, IInteractable
 {
     public void Interact(Transform interactorTransform)
     {
+        if(gameObject.name == "Sledge Hammer")
+        {
+            ItemsCollected.sledgeHammerCollected = true;
+            interactorTransform.GetComponent<TwoDPlayerAnimation>().playerSledgeHammer.SetActive(true);
+        }
         Destroy(gameObject);
         Debug.Log(interactorTransform.name + " Picked Up the " + gameObject.name);
     }
