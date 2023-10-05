@@ -803,6 +803,137 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205163672}
   m_CullTransparentMesh: 1
+--- !u!1 &227659038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 227659042}
+  - component: {fileID: 227659041}
+  - component: {fileID: 227659040}
+  - component: {fileID: 227659039}
+  - component: {fileID: 227659043}
+  m_Layer: 0
+  m_Name: Professor's Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!137 &227659039
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227659038}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1d7317ef48f48f34b8fa3433cac667ac, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+  m_DirtyAABB: 0
+--- !u!65 &227659040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227659038}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &227659041
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227659038}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &227659042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227659038}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.28, y: 0.45881987, z: 3.18}
+  m_LocalScale: {x: 2, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &227659043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227659038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1a7d01385ee4e41acab3ffc662b9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueString: Take this locket, I really want you to have it. What?! There only
+    seems to be half of the locket. It must ... never .. be left ... incomplete.
 --- !u!1 &238338500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2985,58 +3116,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1360592180
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1360592182}
-  - component: {fileID: 1360592181}
-  m_Layer: 0
-  m_Name: Time Machine Puzzle UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1360592181
+--- !u!114 &1360592181 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2788651204596912719, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+  m_PrefabInstance: {fileID: 2853673879319745927}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360592180}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc5cfc81ff3f0a049a47aa3f1d0274c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleInput1: {fileID: 1773307956}
-  puzzleInput2: {fileID: 819478197}
-  puzzleInput3: {fileID: 1956044626}
-  puzzleInput4: {fileID: 2015720888}
-  puzzleInput5: {fileID: 1605925738}
-  puzzleButtons: {fileID: 145065107}
-  inputFieldContainer: {fileID: 1774557007}
-  completeText: {fileID: 1343812045}
---- !u!4 &1360592182
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360592180}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 453.12988, y: 255, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364866488
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,6 +5698,95 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0905795b885abc64e8c46aca616a98ff, type: 3}
+--- !u!1001 &2853673879319745927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 300504597090275041, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_Name
+      value: Time Machine Puzzle UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788651204596912719, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: completeText
+      value: 
+      objectReference: {fileID: 1343812045}
+    - target: {fileID: 2788651204596912719, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: puzzleInput1
+      value: 
+      objectReference: {fileID: 1773307956}
+    - target: {fileID: 2788651204596912719, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: puzzleInput2
+      value: 
+      objectReference: {fileID: 819478197}
+    - target: {fileID: 2788651204596912719, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: puzzleInput3
+      value: 
+      objectReference: {fileID: 1956044626}
+    - target: {fileID: 2788651204596912719, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: puzzleInput4
+      value: 
+      objectReference: {fileID: 2015720888}
+    - target: {fileID: 2788651204596912719, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: puzzleInput5
+      value: 
+      objectReference: {fileID: 1605925738}
+    - target: {fileID: 2788651204596912719, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: puzzleButtons
+      value: 
+      objectReference: {fileID: 145065107}
+    - target: {fileID: 2788651204596912719, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: inputFieldContainer
+      value: 
+      objectReference: {fileID: 1774557007}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 453.12988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023332400726184656, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1501ee406703e2648a4d9a03a1d2f0c8, type: 3}
 --- !u!1001 &5418454583553045627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5674,9 +5853,10 @@ SceneRoots:
   - {fileID: 5418454583553045627}
   - {fileID: 427504612}
   - {fileID: 302676120}
-  - {fileID: 1360592182}
+  - {fileID: 2853673879319745927}
   - {fileID: 290890843}
   - {fileID: 993824560}
   - {fileID: 1929606361}
   - {fileID: 421084357}
   - {fileID: 622679652}
+  - {fileID: 227659042}
