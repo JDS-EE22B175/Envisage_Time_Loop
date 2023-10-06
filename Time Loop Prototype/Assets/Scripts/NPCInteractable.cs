@@ -6,7 +6,8 @@ public class NPCInteractable : MonoBehaviour, IInteractable
 {
     Animator animator;
     int interactHash;
-    [SerializeField] string dialogueString;
+    [SerializeField] GameObject dialogueBox;
+    [SerializeField] List<string> dialogues;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -14,7 +15,7 @@ public class NPCInteractable : MonoBehaviour, IInteractable
     }
     public void Interact(Transform interactorTransform)
     {
-        Debug.Log(dialogueString);
+        StartCoroutine(dialogueBox.GetComponent<DialogueManager>().ShowDialogueText(dialogues));
         if (animator != null)
         {
             animator.SetBool(interactHash, true);

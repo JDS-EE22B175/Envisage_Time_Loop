@@ -11,7 +11,10 @@ public class UIHandler : MonoBehaviour
 
     private void Update()
     {
-        if (playerInteract.GetInteractable() != null) Show(playerInteract.GetInteractable());
+        if (playerInteract.GetInteractable() != null) 
+        {
+            Show(playerInteract.GetInteractable());
+        }
         else Hide();
     }
     private void Show(IInteractable interactable)
