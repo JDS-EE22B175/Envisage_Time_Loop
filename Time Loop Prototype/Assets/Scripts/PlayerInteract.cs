@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     public float interactRange = 1.5f;
+    public bool isinteracting = false;
+    public GameObject dialogueBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +19,11 @@ public class PlayerInteract : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             IInteractable interactable = GetInteractable();
-            if(interactable != null)
+            if(interactable != null && !isinteracting)
             {
                 interactable.Interact(transform);
+                dialogueBox.SetActive(true);
+                isinteracting = true;
             }
         }
 
@@ -53,6 +57,11 @@ public class PlayerInteract : MonoBehaviour
                 }
             }
  
+        }
+
+        if(isinteracting)
+        {
+            return null;
         }
 
         return closestInteractable;
